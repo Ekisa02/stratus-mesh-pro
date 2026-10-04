@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: stratus
+      POSTGRES_PASSWORD: stratus
+      POSTGRES_DB: stratus
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    environment:
+      DATABASE_DSN: "host=db user=stratus password=stratus dbname=stratus sslmode=disable"
+      PORT: "8080"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  db-data:

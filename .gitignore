@@ -1,0 +1,27 @@
+bin/
+*.exe
+*.log
+*.sqlite
+*.db
+.vscode/
+.idea/
+.DS_Store
+.env
+.env.local
+/tmp/
+coverage.out
+dist/
+node_modules/
+
+# Go
+*.test
+*.out
+
+# Docker
+docker-compose.override.yml
+
+# JetBrains
+*.iml
+
+# Generated
+docs/site/
